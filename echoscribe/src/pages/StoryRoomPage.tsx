@@ -90,7 +90,7 @@ export function StoryRoomPage() {
     );
   }
   
-  const isMyTurn = true; // Still simplified for now
+   const isMyTurn = user?.id === story?.current_turn_user_id; // Still simplified for now
 
   // The rest of your JSX return statement...
   return (

@@ -66,12 +66,13 @@ export async function createTurn(turnData: {
   content: string;
   turn_number: number;
 }) {
-  const { data, error } = await supabase
-    .from('turns')
-    .insert(turnData)
-    .select()
-    .single();
+  const { error } = await supabase.rpc('handle_new_turn', {
+    story_id_param: turnData.story_id,
+    author_id_param: turnData.author_id,
+    content_param: turnData.content,
+    turn_number_param: turnData.turn_number
+  });
 
   if (error) throw error;
-  return data;
+  return { success: true };
 }
