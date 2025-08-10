@@ -1,0 +1,3 @@
+[submodule "echoscribe/react"]
+	path = echoscribe/react
+	url = https://github.com/Namaannn001/echo2.git
